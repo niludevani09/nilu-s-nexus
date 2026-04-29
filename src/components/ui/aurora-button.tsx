@@ -1,10 +1,12 @@
 import * as React from "react";
-import { motion, type HTMLMotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export interface AuroraButtonProps extends HTMLMotionProps<"button"> {
+type MotionButtonProps = React.ComponentProps<typeof motion.button>;
+export interface AuroraButtonProps extends Omit<MotionButtonProps, "children"> {
   variant?: "default" | "outline";
   glowClassName?: string;
+  children?: React.ReactNode;
 }
 
 export const AuroraButton = React.forwardRef<HTMLButtonElement, AuroraButtonProps>(

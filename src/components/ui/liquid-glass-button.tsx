@@ -1,9 +1,11 @@
 import * as React from "react";
-import { motion, type HTMLMotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export interface LiquidGlassButtonProps extends HTMLMotionProps<"button"> {
+type MotionButtonProps = React.ComponentProps<typeof motion.button>;
+export interface LiquidGlassButtonProps extends Omit<MotionButtonProps, "children"> {
   variant?: "glass" | "metal";
+  children?: React.ReactNode;
 }
 
 export const LiquidGlassButton = React.forwardRef<HTMLButtonElement, LiquidGlassButtonProps>(
